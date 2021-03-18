@@ -1,12 +1,10 @@
-import react from 'react';
+import TopBar from './common/TopBar';
 
 function App() {
   return (
-    <div >
-      <header >
-          Password generator
-      </header>
-    </div>
+    <>
+      <TopBar />
+    </>
   );
 }
 
