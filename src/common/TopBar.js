@@ -16,7 +16,7 @@ const TopBar = () => {
     const classes = useStyles();
 
     return (
-    <AppBar>
+    <AppBar position="static">
         <ToolBar>
             <Typography variant='h5' className={classes.barText} >
                 Password generator

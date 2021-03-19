@@ -1,11 +1,19 @@
 import TopBar from './common/TopBar';
 import Grid from '@material-ui/core/Grid'
+import PswPage from './pages/PswPage';
 
 function App() {
   return (
-    <Grid container xl={12}>
-      <Grid item xl={12} sm={12}>
+    <Grid container direction="column" >
+      <Grid item>
         <TopBar />
+      </Grid>
+      <Grid item container>
+        <Grid item  sm={2} xs={0}> Hellooo</Grid>
+        <Grid item sm={8} xs={8}>
+            <PswPage />
+        </Grid>
+        <Grid item sm={2} xs={0}> Hellooo</Grid>
       </Grid>
     </Grid>
   );
