@@ -1,25 +1,22 @@
 import Grid from '@material-ui/core/Grid';
 import FormPsw from './FormPsw';
 import ListPsw from './ListPsw';
-import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
-    Cont: {
-        borderStyle: "groove",
-        alignContent: "center"
-    }
-})
+import Paper from '@material-ui/core/Paper';
 
 const FormPage = () => {
-    const classes = useStyles();
-
+    
     return (
-    <Grid container>
-        <Grid item sm={6} xs={12} >
-            <FormPsw />
+    <Grid container spacing={2}>
+        <Grid item sm={4} xs={12} >
+            <Paper elevation={3}>
+                <FormPsw />
+            </Paper>
         </Grid>
-        <Grid item sm={6} xs={12} className={classes.Cont}>
-            <ListPsw />
+        <Grid item sm={8} xs={12} >
+            <Paper elevation={3}>
+                <ListPsw />
+            </Paper>
         </Grid>
     </Grid>
     )

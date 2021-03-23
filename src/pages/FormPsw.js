@@ -6,15 +6,16 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
     Form: {
-      marginLeft: 'auto',
-      marginRight: 'auto',
+      margin: "0 auto",
+      width: "200px"
     },
     FormElements: {
       margin: '6px',
     },
     FormButton: {
       position: 'relative',
-      left: '137px'
+      left: '110px',
+      margin: '6px'
     } 
 });
 
@@ -24,7 +25,7 @@ const FormPsw = () => {
     <form className={classes.Form}>
         <div className={classes.FormElements}>
             <VpnKey />
-            <Typography variant='h5'>
+            <Typography variant='h6'>
                 Hashing passwords!
             </Typography>
         </div>

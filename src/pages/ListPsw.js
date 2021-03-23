@@ -5,18 +5,28 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
 
 const list = [
     {id: "01", beforeHash: "Test", afterHash: "sgfwgrg" },
 ]
 
-const ListPsw = () => (
-    <TableContainer >
+const useStyles = makeStyles({
+    Table: {
+        margin: "6px"
+    }
+})
+
+const ListPsw = () => {
+    const classes = useStyles();
+
+    return (
+    <TableContainer className={classes.Table}>
         <Table size="small" arial-label="a dense table">
             <TableHead>
                 <TableRow>
                     <TableCell>
-                        <Typography variant="h7" align="center"> Number of psw </Typography>
+                        <Typography variant="h7" align="center" > Number of psw </Typography>
                     </TableCell>
                     <TableCell>
                         <Typography variant="h7" align="center"> Before hash </Typography>
@@ -27,7 +37,16 @@ const ListPsw = () => (
                 </TableRow>
             </TableHead>
             <TableBody>
-                {list.map(item => 
+                {list.length === 0 ? 
+                <TableRow>
+                    <TableCell colSpan={3}>
+                    <Typography variant="h5" align="center" color="primary">
+                      Empty List!
+                    </Typography>
+                    </TableCell>
+                </TableRow>
+                 : 
+                list.map(item => 
                     <TableRow>
                         <TableCell >
                             <Typography variant="body1">
@@ -49,6 +68,7 @@ const ListPsw = () => (
             </TableBody>
         </Table>
     </TableContainer>
-)
+    )
+}
 
 export default ListPsw;
