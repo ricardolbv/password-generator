@@ -13,11 +13,12 @@ function FormPswControl ({ onGeneratePress })  {
     function handleSubmit (event){
         event.preventDefault();
         onGeneratePress(password);
-        alert(password);
+        setPsw("");
+        console.log(event);
     }
 
     return (
-        <FormPsw onChange={handleChange} onSubmit={handleSubmit} />
+        <FormPsw onChange={handleChange} onSubmit={handleSubmit} password={password}/>
     )
 }
 
