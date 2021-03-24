@@ -4,6 +4,7 @@ import VpnKey from '@material-ui/icons/VpnKeyTwoTone';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
+
 const useStyles = makeStyles({
     Form: {
       margin: "0 auto",
@@ -19,10 +20,10 @@ const useStyles = makeStyles({
     } 
 });
 
-const FormPsw = () => {
+const FormPsw = props => {
     const classes = useStyles();
     return (
-    <form className={classes.Form}>
+    <form className={classes.Form} onSubmit={props.onSubmit}>
         <div className={classes.FormElements}>
             <VpnKey />
             <Typography variant='h6'>
@@ -30,10 +31,10 @@ const FormPsw = () => {
             </Typography>
         </div>
         <div className={classes.FormElements}>
-        <TextField variant="outlined" label="Insert a value"/>
+        <TextField variant="outlined" label="Insert a value" onChange={props.onChange}/>
         </div>
         <div className={classes.FormElements}>
-        <Button className={classes.FormButton} color="primary" variant="contained" > 
+        <Button className={classes.FormButton} color="primary" variant="contained" type="submit"> 
             Hash 
         </Button>
         </div>
