@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     } 
 });
 
-const FormPsw = props => {
+const FormPsw = (props) => {
     const classes = useStyles();
     return (
     <form className={classes.Form} onSubmit={props.onSubmit}>

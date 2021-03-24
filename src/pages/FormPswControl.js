@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import FormPsw from './FormPsw';
+import { connect } from 'react-redux';
+import {createPsw} from './actions';
 
-const FormPswControl = () => {
+function FormPswControl ({ onGeneratePress })  {
     const [password, setPsw] = useState("");
     
     function handleChange ({ target }) {
@@ -10,6 +12,7 @@ const FormPswControl = () => {
 
     function handleSubmit (event){
         event.preventDefault();
+        onGeneratePress(password);
         alert(password);
     }
 
@@ -18,4 +21,8 @@ const FormPswControl = () => {
     )
 }
 
-export default FormPswControl;
+const mapDispatchToProps = dispatch => ({
+    onGeneratePress: psw => dispatch(createPsw(psw))
+})
+
+export default connect(null, mapDispatchToProps)(FormPswControl);
