@@ -6,10 +6,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
 
-const list = [
-    {id: "01", beforeHash: "Test", afterHash: "sgfwgrg" },
-]
+//
 
 const useStyles = makeStyles({
     Table: {
@@ -17,7 +16,7 @@ const useStyles = makeStyles({
     }
 })
 
-const ListPsw = () => {
+function ListPsw ({ passwords }) {
     const classes = useStyles();
 
     return (
@@ -37,7 +36,7 @@ const ListPsw = () => {
                 </TableRow>
             </TableHead>
             <TableBody>
-                {list.length === 0 ? 
+                {passwords.length === 0 ? 
                 <TableRow>
                     <TableCell colSpan={3}>
                     <Typography variant="h5" align="center" color="primary">
@@ -46,21 +45,21 @@ const ListPsw = () => {
                     </TableCell>
                 </TableRow>
                  : 
-                list.map(item => 
+                passwords.map(item => 
                     <TableRow>
                         <TableCell >
                             <Typography variant="body1">
-                            {item.id}
+                            {item}
                             </Typography>
                         </TableCell>
                         <TableCell >
                             <Typography variant="body1">    
-                            {item.beforeHash}
+                            {item}
                             </Typography>
                         </TableCell>
                         <TableCell >
                             <Typography variant="overline">
-                            {item.afterHash}
+                            {item}
                             </Typography>
                         </TableCell>
                     </TableRow>
@@ -71,4 +70,8 @@ const ListPsw = () => {
     )
 }
 
-export default ListPsw;
+const mapStateToProps = state => ({
+    passwords : state.Passwords
+  })
+  
+export default connect(mapStateToProps, null)(ListPsw);
