@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 
-//
+
 
 const useStyles = makeStyles({
     Table: {
@@ -25,13 +25,13 @@ function ListPsw ({ passwords }) {
             <TableHead>
                 <TableRow>
                     <TableCell>
-                        <Typography variant="h7" align="center" > Number of psw </Typography>
+                        <Typography variant="h6" align="center" > Number of psw </Typography>
                     </TableCell>
                     <TableCell>
-                        <Typography variant="h7" align="center"> Before hash </Typography>
+                        <Typography variant="h6" align="center"> Before hash </Typography>
                     </TableCell>
                     <TableCell>
-                        <Typography variant="h7" align="center"> After hash </Typography>
+                        <Typography variant="h6" align="center"> After hash </Typography>
                     </TableCell>
                 </TableRow>
             </TableHead>
@@ -45,11 +45,11 @@ function ListPsw ({ passwords }) {
                     </TableCell>
                 </TableRow>
                  : 
-                passwords.map(item => 
-                    <TableRow>
+                passwords.map((item, i) => 
+                    <TableRow key={i}>
                         <TableCell >
                             <Typography variant="body1">
-                            {item}
+                            {i + 1}
                             </Typography>
                         </TableCell>
                         <TableCell >
