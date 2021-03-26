@@ -31,7 +31,7 @@ const FormPsw = (props) => {
             </Typography>
         </div>
         <div className={classes.FormElements}>
-        <TextField variant="outlined" label="Insert a value" onChange={props.onChange} value={props.password}/>
+        <TextField variant="outlined" label="Insert a value" onChange={props.onChange} value={props.password.psw}/>
         </div>
         <div className={classes.FormElements}>
         <Button className={classes.FormButton} color="primary" variant="contained" type="submit"> 
