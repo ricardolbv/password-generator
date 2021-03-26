@@ -23,15 +23,15 @@ function ListPsw ({ passwords }) {
     <TableContainer className={classes.Table}>
         <Table size="small" arial-label="a dense table">
             <TableHead>
-                <TableRow>
+                <TableRow >
                     <TableCell>
-                        <Typography variant="h6" align="center" > Number of psw </Typography>
+                        <Typography variant="subtitle1" align="center" > Number of psw </Typography>
                     </TableCell>
                     <TableCell>
-                        <Typography variant="h6" align="center"> Before hash </Typography>
+                        <Typography variant="subtitle1" align="center"> Before hash </Typography>
                     </TableCell>
                     <TableCell>
-                        <Typography variant="h6" align="center"> After hash </Typography>
+                        <Typography variant="subtitle1" align="center"> After hash </Typography>
                     </TableCell>
                 </TableRow>
             </TableHead>
@@ -47,19 +47,19 @@ function ListPsw ({ passwords }) {
                  : 
                 passwords.map((item, i) => 
                     <TableRow key={i}>
-                        <TableCell >
+                        <TableCell align="center">
                             <Typography variant="body1">
                             {i + 1}
                             </Typography>
                         </TableCell>
-                        <TableCell >
+                        <TableCell align="center">
                             <Typography variant="body1">    
-                            {item}
+                            {item.psw}
                             </Typography>
                         </TableCell>
-                        <TableCell >
+                        <TableCell align="center">
                             <Typography variant="overline">
-                            {item}
+                            {item.hashPsw}
                             </Typography>
                         </TableCell>
                     </TableRow>

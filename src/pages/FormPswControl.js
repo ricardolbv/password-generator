@@ -3,24 +3,29 @@ import FormPsw from './FormPsw';
 import { connect } from 'react-redux';
 import {createPsw} from './actions';
 import Message from '../common/Message';
+import shortHash from 'short-hash';
 
 
 function FormPswControl ({ onGeneratePress })  {
-    const [password, setPsw] = useState("");
+    const [password, setPsw] = useState({
+        psw: "",
+        hashPsw: ""
+    });
     //Message status
     const [toast, setToast] = useState(false);
     const [status, setStatus] = useState("success");
     const [message, setMessage] = useState("");
-    
+        
     
     function handleChange ({ target }) {
-        setPsw(target.value)
-    }
+        setPsw({...password, 
+                psw: target.value})
+    }   
 
     const handleClose = () => setToast(false);
 
     function handleValidation () {
-        if  (password === "") {
+        if  (password.psw === "") {
             setMessage("Cant be empty")
             setToast(true);
             setStatus("error");
@@ -30,12 +35,19 @@ function FormPswControl ({ onGeneratePress })  {
             return true;
     }
 
+    function handleHash ()  {
+        const hash = shortHash(password.psw);
+        setPsw(password.hashPsw = hash);
+        console.log(password);
+    }
+
 
     function handleSubmit (event){
         event.preventDefault();
         if (handleValidation()){
+            handleHash();
             onGeneratePress(password);
-            setPsw("");
+            setPsw({ ...password, psw: "" });
             setToast(true);
             setMessage("Password created");
             setStatus("success");
