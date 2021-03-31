@@ -1,5 +1,5 @@
 import Pagination from '@material-ui/lab/Pagination';
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     root: {
@@ -11,11 +11,11 @@ const useStyles = makeStyles({
 const ListPagination = props => {
     const classes = useStyles();
     const handleChange = (event, page) => {
-        console.log(page);
+        props.onChangePages(page);
     }
     return (
     <div>
-        <Pagination className={classes.root} count={props.amountItens / 10} onChange={handleChange} color="primary" />
+        <Pagination className={classes.root} count={parseInt(1 + (props.amountItens / 10), 10)} onChange={handleChange} color="primary" />
     </div>
     )
 }
