@@ -2,6 +2,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import VpnKey from '@material-ui/icons/VpnKeyTwoTone';
 import { makeStyles } from '@material-ui/core/styles';
+import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 
 
@@ -26,6 +27,7 @@ const FormPsw = (props) => {
     <form className={classes.Form} onSubmit={props.onSubmit}>
         <div className={classes.FormElements}>
             <VpnKey />
+            <Divider />
             <Typography variant='h6'>
                 Hashing passwords!
             </Typography>

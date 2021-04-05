@@ -13,7 +13,7 @@ const FormPage = () => {
             </Paper>
         </Grid>
         <Grid item sm={8} xs={12} >
-            <Paper elevation={3} style={{ marginLeft: "auto", marginRight: "auto",}}>
+            <Paper elevation={3} >
                 <ListPsw />
             </Paper>
         </Grid>
