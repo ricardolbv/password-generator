@@ -15,7 +15,7 @@ const Message = props => {
 
     return (
         <div >
-        <SnackBar open={props.open} className={classes.root} onClose={props.handleClose} onClick={props.handleClose}>
+        <SnackBar open={props.open} className={classes.root}  onClick={props.handleClose} autoHideDuration={6000}>
         <Alert severity={props.status} variant='filled' className={classes.root} open={props.open} onClose={props.handleClose} >
             <AlertTitle>{props.message}</AlertTitle>
         </Alert>

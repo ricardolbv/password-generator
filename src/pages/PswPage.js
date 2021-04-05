@@ -1,7 +1,6 @@
 import Grid from '@material-ui/core/Grid';
 import ListPsw from './ListPsw';
 import FormPswControl from './FormPswControl';
-
 import Paper from '@material-ui/core/Paper';
 
 const FormPage = () => {
@@ -14,7 +13,7 @@ const FormPage = () => {
             </Paper>
         </Grid>
         <Grid item sm={8} xs={12} >
-            <Paper elevation={3}>
+            <Paper elevation={3} style={{ marginLeft: "auto", marginRight: "auto",}}>
                 <ListPsw />
             </Paper>
         </Grid>

@@ -7,6 +7,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
+import ListPagination from './ListPagination';
+import { useState } from 'react';
 
 
 
@@ -18,8 +20,12 @@ const useStyles = makeStyles({
 
 function ListPsw ({ passwords }) {
     const classes = useStyles();
+    const [pagination, setPagination] = useState(1);
+    var ref = pagination * 10;
+    const filterPsws = passwords.slice(ref - 10, ref);
 
     return (
+    <>
     <TableContainer className={classes.Table}>
         <Table size="small" arial-label="a dense table">
             <TableHead>
@@ -45,7 +51,7 @@ function ListPsw ({ passwords }) {
                     </TableCell>
                 </TableRow>
                  : 
-                passwords.map((item, i) => 
+                filterPsws.map((item, i) => 
                     <TableRow key={i}>
                         <TableCell align="center">
                             <Typography variant="body1">
@@ -67,6 +73,12 @@ function ListPsw ({ passwords }) {
             </TableBody>
         </Table>
     </TableContainer>
+    { passwords.length >= 10 ?
+        <ListPagination amountItens={passwords.length} onChangePages={setPagination} />
+        :
+        null
+    }
+    </>
     )
 }
 
