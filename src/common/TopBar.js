@@ -19,7 +19,7 @@ const TopBar = () => {
     <AppBar position="static">
         <ToolBar>
             <Typography variant='h5' className={classes.barText} >
-                Password generator
+                Password Generator
             </Typography>
         </ToolBar>
     </AppBar>

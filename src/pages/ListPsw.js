@@ -14,7 +14,11 @@ import { useState } from 'react';
 
 const useStyles = makeStyles({
     Table: {
-        margin: "6px"
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    tableCell :{
+        backgroundColor: "#bebebe"
     }
 })
 
@@ -30,14 +34,14 @@ function ListPsw ({ passwords }) {
         <Table size="small" arial-label="a dense table">
             <TableHead>
                 <TableRow >
-                    <TableCell>
-                        <Typography variant="subtitle1" align="center" > Number of psw </Typography>
+                    <TableCell className={classes.tableCell}>
+                        <Typography variant="h6" align="center" > Number of psw </Typography>
                     </TableCell>
-                    <TableCell>
-                        <Typography variant="subtitle1" align="center"> Before hash </Typography>
+                    <TableCell className={classes.tableCell}>
+                        <Typography variant="h6" align="center"> Before hash </Typography>
                     </TableCell>
-                    <TableCell>
-                        <Typography variant="subtitle1" align="center"> After hash </Typography>
+                    <TableCell className={classes.tableCell}>
+                        <Typography variant="h6" align="center"> After hash </Typography>
                     </TableCell>
                 </TableRow>
             </TableHead>
@@ -73,7 +77,7 @@ function ListPsw ({ passwords }) {
             </TableBody>
         </Table>
     </TableContainer>
-    { passwords.length >= 10 ?
+    { passwords.length > 10 ?
         <ListPagination amountItens={passwords.length} onChangePages={setPagination} />
         :
         null
