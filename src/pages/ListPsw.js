@@ -21,8 +21,8 @@ const useStyles = makeStyles({
 function ListPsw ({ passwords }) {
     const classes = useStyles();
     const [pagination, setPagination] = useState(1);
-    const ref = pagination === 1 ? 0 : (pagination * 10);
-    const filterPsws = passwords.slice(ref, pagination * 10);
+    var ref = pagination * 10;
+    const filterPsws = passwords.slice(ref - 10, ref);
 
     return (
     <>
